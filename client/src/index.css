@@ -18,7 +18,10 @@
   }
 
   body {
-    @apply bg-slate-950 text-white;
+    background-color: #020617;
+    /* bg-slate-950 */
+    color: #ffffff;
+    /* text-white */
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
