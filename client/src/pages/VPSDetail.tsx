@@ -47,7 +47,7 @@ export default function VPSDetail() {
     ]);
 
     useEffect(() => {
-        const socket = io('http://localhost:5000');
+        const socket = io(`http://${window.location.hostname}:5000`);
         socket.on('stats', (data: any) => {
             setLiveStats(data);
         });
