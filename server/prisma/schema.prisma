@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("CLIENT")
+  avatar    String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  vps       VPS[]
+}
+
+model Node {
+  id        String   @id @default(uuid())
+  name      String
+  ip        String
+  status    String   @default("active")
+  ram       Int
+  disk      Int
+  cpu       Int
+  vps       VPS[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model VPS {
+  id          String    @id @default(uuid())
+  name        String
+  os          String
+  status      String    @default("stopped")
+  cpu         Int
+  ram         Int
+  disk        Int
+  ip          String?
+  nodeId      String
+  node        Node      @relation(fields: [nodeId], references: [id])
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  expiryDate  DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
