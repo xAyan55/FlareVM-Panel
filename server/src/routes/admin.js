@@ -2,18 +2,10 @@ const express = require('express');
 const router = express.Router();
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
-const authenticate = require('../middleware/auth');
+const { authMiddleware, adminMiddleware } = require('../middleware/auth');
 
-// Middleware to ensure admin
-const isAdmin = (req, res, next) => {
-    if (req.user.role !== 'ADMIN') {
-        return res.status(403).json({ error: "Access denied. Admin only." });
-    }
-    next();
-};
-
-router.use(authenticate);
-router.use(isAdmin);
+router.use(authMiddleware);
+router.use(adminMiddleware);
 
 // Get all users
 router.get('/users', async (req, res) => {

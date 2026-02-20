@@ -59,9 +59,9 @@ router.post('/login', async (req, res) => {
     }
 });
 
-const authenticate = require('../middleware/auth');
+const { authMiddleware } = require('../middleware/auth');
 
-router.get('/me', authenticate, async (req, res) => {
+router.get('/me', authMiddleware, async (req, res) => {
     try {
         const user = await prisma.user.findUnique({ where: { id: req.user.userId } });
         if (!user) return res.status(404).json({ error: "User not found" });
@@ -72,7 +72,7 @@ router.get('/me', authenticate, async (req, res) => {
     }
 });
 
-router.patch('/profile', authenticate, async (req, res) => {
+router.patch('/profile', authMiddleware, async (req, res) => {
     try {
         const { name, email } = req.body;
         const updated = await prisma.user.update({
@@ -85,7 +85,7 @@ router.patch('/profile', authenticate, async (req, res) => {
     }
 });
 
-router.patch('/password', authenticate, async (req, res) => {
+router.patch('/password', authMiddleware, async (req, res) => {
     try {
         const { currentPassword, newPassword } = req.body;
         const user = await prisma.user.findUnique({ where: { id: req.user.userId } });
