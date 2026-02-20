@@ -2,47 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    background-color: #020617 !important;
+    color: #ffffff !important;
+  }
+}
+
 /* Fallback styles in case Tailwind fails to load components */
 .glass-card {
-  background-color: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(24px);
-  border-radius: 1rem;
+  background-color: rgba(15, 23, 42, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(24px) !important;
+  border-radius: 1rem !important;
 }
 
 .btn-primary {
-  padding: 0.625rem 1.25rem;
-  background-color: #2563eb;
-  color: white;
-  font-weight: 500;
-  border-radius: 0.75rem;
-  font-size: 0.875rem;
-  transition: all 0.2s;
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+  padding: 0.625rem 1.25rem !important;
+  background-color: #2563eb !important;
+  color: white !important;
+  font-weight: 500 !important;
+  border-radius: 0.75rem !important;
+  font-size: 0.875rem !important;
+  transition: all 0.2s !important;
+  border: none !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
 }
 
 .btn-primary:hover {
-  background-color: #3b82f6;
+  background-color: #3b82f6 !important;
 }
 
 .input-field {
-  width: 100%;
-  background-color: rgba(30, 41, 59, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  color: white;
-  border-radius: 0.75rem;
-  padding: 0.75rem 1rem;
-  outline: none;
-  font-size: 0.875rem;
+  width: 100% !important;
+  background-color: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: white !important;
+  border-radius: 0.75rem !important;
+  padding: 0.75rem 1rem !important;
+  outline: none !important;
+  font-size: 0.875rem !important;
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #3b82f6, #06b6d4, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4, #8b5cf6) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
